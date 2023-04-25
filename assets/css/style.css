@@ -1,0 +1,516 @@
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* HEADER */
+header {
+    padding: 1.625rem 0;
+    border-bottom: 1px solid #ffffff33;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.header__content {
+    width: 75%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.header__logo {
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+.header__content a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header__content ul {
+    list-style: none;
+}
+
+.header__content li {
+    display: inline;
+    padding: 0 1.625rem;
+}
+
+.header__content li a {
+    font-size: 1.0625rem;
+}
+
+.header__content li a:hover {
+    color: #e62b4a;
+    cursor: pointer;
+}
+
+/* CAROUSEL */
+.carousel {
+    background-image: url(../img/home_slider.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 700px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel__content {}
+
+.carousel__content p {
+    font-size: 1.5625rem;
+}
+
+.carousel__content h1 {
+    font-size: 4.6875rem;
+    line-height: 5.625rem;
+}
+
+.carousel__content button {
+    margin-top: 1.25rem;
+    padding: 0.9375rem 1.5625rem;
+    border: 1px solid #e62b4a;
+    background-color: #e62b4a;
+    color: #fff;
+    transition: all 500ms;
+}
+
+.carousel__content button:hover {
+    background-color: #af2239;
+}
+
+
+.carousel__scroll {
+    height: 80px;
+    position: relative;
+}
+
+.carousel__scroll i {
+    position: absolute;
+    right: 230px;
+    font-size: 30px;
+    margin-top: 50px;
+    animation: CarouselMove 1s linear 0s infinite;
+}
+
+/* keyframes: giúp khai báo chuyển động của một chu kì */
+
+/* name: tên hiệu ứng, tên chu kỳ được tạo bằng keyrames
+duration: thời gian của một chu kì hiệu ứng 
+timing-function: quy định tốc độc nhanh chậm của một chu kì
+delay: độ trễ của một hiệu ứng
+interation-count: số lần lặp lại của một chu kì hiệu ứng */
+
+/* scale: zoom
+rotate: quay */
+@keyframes CarouselMove {
+    0% {
+        top: 0px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 40px;
+        opacity: 0;
+    }
+}
+
+/* SERVICES */
+.services {
+    background-color: #000;
+    text-align: center;
+    padding: 90px 0;
+}
+
+.services__content {
+    width: 80%;
+    margin: auto;
+}
+
+.services__content .slick-dots li button:before {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.services__content .slick-dots li.slick-active button:before {
+    color: #e62b4a;
+}
+
+.services__item {}
+
+.services__content .services__item {
+    position: relative;
+    background-color: #fff;
+    width: 208px;
+    height: 230px;
+    margin: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* before là loại thẻ inline, muốn xét được kích thước thì dùng dislay: block  */
+.services__item::after {
+    content: '';
+    height: 0;
+    width: 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #e62b4a;
+    display: block;
+    transition: all .5s;
+
+}
+
+.services__item:hover::after {
+    height: 100%;
+}
+
+.services__item i {
+    font-size: 50px;
+    color: #888888;
+}
+
+.services__item p {
+    font-size: 14px;
+    color: #888888;
+}
+
+/* SHOWCASE */
+.showcase {
+    padding: 100px 0;
+}
+
+.showcase__content {
+    width: 80%;
+    margin: auto;
+}
+
+.showcase__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 50px;
+}
+
+.showcase__item {
+    height: 408px;
+    position: relative;
+    /* overflow: hidden: Không cho nội dung bên trong thẻ tràn ra ngoài */
+    overflow: hidden;
+}
+
+.showcase__item img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover: sửa lỗi ảnh bị vỡ chiều cao so với thẻ */
+    object-fit: cover;
+    filter: grayscale(100%) contrast(50%);
+}
+
+.showcase__overlay {
+    background-color: rgba(230, 43, 74, 0.6);
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* trước hover */
+    /* opacity: 0 Ẩn */
+    opacity: 0;
+    transition: all 1s;
+}
+
+.showcase__icon {
+    position: absolute;
+    color: #000;
+    background-color: #fff;
+    padding: 4px 10px;
+    top: 25px;
+    right: 25px;
+
+    /* trước hover */
+    transform: translateY(50px);
+    transition: all 1s;
+}
+
+.showcase__text {
+    position: absolute;
+    color: #fff;
+    left: 25px;
+    bottom: 25px;
+
+    /* trước hover */
+    transform: translateY(50px);
+    transition: all 1s;
+}
+
+.showcase__overlay:hover {
+    /* sau hover */
+    /* opacity: 1 Hiện */
+    opacity: 1;
+}
+
+.showcase__overlay:hover .showcase__icon {
+    /* sau hover */
+    transform: translateY(0);
+}
+
+.showcase__overlay:hover .showcase__text {
+    transform: translateY(0);
+}
+
+
+/* BLOG */
+.blog {
+    padding: 100px 0;
+}
+
+.title {
+    text-align: center;
+}
+
+.title p:first-child {
+    color: #888888;
+    font-weight: 400;
+}
+
+.title h2 {
+    font-size: 50px;
+    font-weight: 400;
+    color: #000;
+}
+
+.title p:nth-child(3) {
+    color: #888888;
+    font-weight: 400;
+}
+
+.blog__content {
+    margin-top: 50px;
+    display: grid;
+
+    /* chỉ khai báo cột khi các hàng có kích thước bằng nhau */
+    /* grid-template-columns: 25% 25% 25% 25%; ==> cách 1: trùng lặp code */
+    /* grid-template-columns: repeat(1, 25%); ==> cách 2 */
+    /* grid-template-columns: repeat(4, 1fr); ==> cách 3: Duy nhất Grid có đơn vị fr (1fr/4) */
+    grid-template-columns: repeat(4, 1fr);
+
+    /* khai báo hàng nếu các hàng có kích thước khác nhau */
+    /* grid-template-rows: ; */
+}
+
+.blog__item img {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(30%) contrast(50%);
+    transition: all 0.5s;
+}
+
+.blog__item img:hover {
+    filter: grayscale(0) contrast(100%);
+}
+
+.blog__item1 {
+    /* grid-column: 1/3; ==> cách 1: đường bắt đầu/đường kết thúc */
+    /* grid-column: 1/span 2; ==> cách 2: đường bắt đầu/số ô chiếm chỗ */
+    grid-column: 1/span 2;
+    grid-row: 1/span 2;
+}
+
+.blog__item10 {
+    grid-column: 3/span 2;
+    grid-row: 3/span 2;
+}
+
+/* NUMBER */
+.number {
+    background-color: #000;
+    padding: 100px 0;
+}
+
+.number__content {
+    width: 70%;
+    margin: auto;
+
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.number__item {
+    text-align: center;
+    /* min-width: 170px;
+    min-height: 120px; */
+
+    /* xử lí rung lắc chữ */
+    width: calc(100%/4);
+}
+
+.number__item p:first-child {
+    font-size: 60px;
+    font-weight: 300;
+}
+
+.number__item p:nth-child(2) {
+    font-size: 20px;
+    color: #888888;
+}
+
+/* EXP */
+.exp {
+    padding: 100px 0;
+    background-image: url(../img/bussiness_img_1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* giữ cố định background */
+    background-attachment: fixed;
+}
+
+.exp__content {
+    width: 80%;
+    margin: auto;
+}
+
+.exp__content video {
+    width: 100%;
+}
+
+/* CONTACT */
+.contact {
+    padding: 100px 0;
+}
+
+.contact__content {
+    width: 80%;
+    margin: 30px auto 0;
+
+    display: flex;
+    justify-content: center;
+}
+
+.contact__map {
+    width: 60%;
+}
+
+.contact__form {
+    width: 40%;
+}
+
+
+.contact__map iframe {
+    width: 100%;
+}
+
+.contact__form form {
+    height: 100%;
+    padding: 0 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact__form input {
+    font-size: 15px;
+    padding: 1em;
+    border: 1px solid #888888;
+    border-radius: 2px;
+    transition: all .5s;
+}
+
+.contact__form textarea {
+    font-size: 15px;
+    padding: 1em;
+    border: 1px solid #888888;
+    border-radius: 2px;
+}
+
+.contact__form textarea:focus,
+.contact__form input:focus {
+    /* tắt đường outline của browser */
+    outline: none;
+    border: 3px solid #e62b4a;
+    box-shadow: -4px -4px 11px #888;
+
+}
+
+.contact__form button {
+    padding: 20px 30px;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #ffffff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.title h2 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.title p:first-child {
+    font-size: 14px;
+    color: #e62b4a;
+    font-weight: 300;
+}
+
+.title p:last-child {
+    font-size: 16px;
+    color: #888888;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.title--black h2 {
+    color: #000;
+}
+
+.title--black p:first-child {
+    color: #888;
+}
+
+/* Back To Top */
+.BackToTop {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    display: block;
+    background-color: #e62b4a;
+    color: #fff;
+    font-size: 20px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+
+}
